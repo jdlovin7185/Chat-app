@@ -7,8 +7,9 @@ export default class Screen1 extends React.Component {
       <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
         <Text>Hello Screen1!</Text>
         <Button 
-          title = "Go to Screen2"
-          onPress = {() => this.props.navigation.navigate('Screen2')}
+          title = "Go to Chat"
+          onPress = {() => this.props.navigation.navigate('Chat', 
+          { name: this.state.name })}
         />
       </View>
     )
