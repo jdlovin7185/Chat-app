@@ -52,7 +52,10 @@ export default class Screen1 extends React.Component {
               <Button style={styles.chatButton}
                 title = "Start Chatting"
                 onPress = {() => this.props.navigation.navigate('Chat', 
-                { name: this.state.name })}
+                { 
+                  name: this.state.name, 
+                  color: this.state.color
+                })}
                 />
           </View>
       </View>
