@@ -17,10 +17,7 @@ import {
 const Stack = createStackNavigator();
 
 export default class HelloWorld extends React.Component {
-  constructor(props) {
-  super(props);
-  this.state= { text: '' };
-  }
+
 
   alertMyText (input = []) {
     Alert.alert(input.text);
