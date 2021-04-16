@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, TextInput, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Button, TextInput, ImageBackground, TouchableOpacity } from 'react-native';
 
 const image = require('../assets/Background_Image.png');
 
 export default class Screen1 extends React.Component {
   constructor(props) {
     super(props);
-    this.state= { name: '' };
+    this.state= { 
+      name: '',
+      color: ''
+     };
     }
 
   render() {
@@ -29,10 +32,22 @@ export default class Screen1 extends React.Component {
                 <Text style={styles.colorPallette}>
                   Choose Background Color:
                 </Text>
-                <View style={styles.pallette.palletteOne}></View>
-                <View style={styles.pallette.palletteTwo}></View>
-                <View style={styles.pallette.palletteThree}></View>
-                <View style={styles.pallette.palletteFour}></View>
+                <TouchableOpacity
+                onPress = {() => this.setState({color})}
+                style={styles.pallette.palletteOne}
+                ></TouchableOpacity>
+                <TouchableOpacity
+                onPress = {() => this.setState({color})}
+                style={styles.pallette.palletteTwo}
+                ></TouchableOpacity>
+                <TouchableOpacity
+                onPress = {() => this.setState({color})}
+                style={styles.pallette.palletteThree}
+                ></TouchableOpacity>
+                <TouchableOpacity
+                onPress = {() => this.setState({color})}
+                style={styles.pallette.palletteFour}
+                ></TouchableOpacity>
               </View>
               <Button style={styles.chatButton}
                 title = "Start Chatting"
