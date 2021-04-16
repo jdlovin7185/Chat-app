@@ -7,7 +7,7 @@ export default class Screen2 extends React.Component {
     this.props.navigation.setOptions({ title: name });
     return (
       <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Hello Screen2</Text>
+        <Text>Hello {this.state.name}, welcome to the View</Text>
       </View>
     )
   }
