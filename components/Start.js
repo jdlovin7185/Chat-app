@@ -32,22 +32,24 @@ export default class Screen1 extends React.Component {
                 <Text style={styles.colorPallette}>
                   Choose Background Color:
                 </Text>
-                <TouchableOpacity
-                onPress = {() => this.setState({color})}
-                style={styles.pallette.palletteOne}
-                ></TouchableOpacity>
-                <TouchableOpacity
-                onPress = {() => this.setState({color})}
-                style={styles.pallette.palletteTwo}
-                ></TouchableOpacity>
-                <TouchableOpacity
-                onPress = {() => this.setState({color})}
-                style={styles.pallette.palletteThree}
-                ></TouchableOpacity>
-                <TouchableOpacity
-                onPress = {() => this.setState({color})}
-                style={styles.pallette.palletteFour}
-                ></TouchableOpacity>
+                <View style={styles.colorChoice}>
+                  <TouchableOpacity
+                  onPress = {() => this.setState({color: '#090C08'})}
+                  style={styles.palletteOne}
+                  ></TouchableOpacity>
+                  <TouchableOpacity
+                  onPress = {() => this.setState({color: '#474056'})}
+                  style={styles.palletteTwo}
+                  ></TouchableOpacity>
+                  <TouchableOpacity
+                  onPress = {() => this.setState({color: '#8A95A5'})}
+                  style={styles.palletteThree}
+                  ></TouchableOpacity>
+                  <TouchableOpacity
+                  onPress = {() => this.setState({color: '#B9C6AE'})}
+                  style={styles.palletteFour}
+                  ></TouchableOpacity>
+                </View>
               </View>
               <Button style={styles.chatButton}
                 title = "Start Chatting"
@@ -123,20 +125,43 @@ const styles = StyleSheet.create({
   colorContainer: {
     margin: 20
   },
+  colorChoice: {
+    flexDirection: 'row',
+    marginLeft: -30,
+    marginRight: 5,
+    position: 'relative'
+  },
   pallette: {
     width: 50,
-    borderRadius: 50/2,
+    height: 50,
+    borderRadius: 25
   },
   palletteOne: {
-    backgroundColor: '#090c08'
+    backgroundColor: '#090c08',width: 50,
+    width: 50,
+    height: 50,
+    borderRadius: 25, 
+    margin: 10
   },
   palletteTwo: {
-    backgroundColor: '#474056'
+    backgroundColor: '#474056',
+    width: 50,
+    height: 50,
+    borderRadius: 25, 
+    margin: 10
   },
   palletteThree: {
-    backgroundColor: '#8A95A5'
+    backgroundColor: '#8A95A5',
+    width: 50,
+    height: 50,
+    borderRadius: 25, 
+    margin: 10
   },
   palletteFour: {
-    backgroundColor: '#B9C6AE'
+    backgroundColor: '#B9C6AE',
+    width: 50,
+    height: 50,
+    borderRadius: 25, 
+    margin: 10
   }
 });
