@@ -4,14 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Start from './components/Start';
 import Chat from './components/Chat';
-import { 
-  StyleSheet, 
-  View, 
-  TextInput, 
-  Text, 
-  Button, 
-  Alert,
-  ScrollView 
+import {  
+  Alert
 } from 'react-native';
 
 const Stack = createStackNavigator();
@@ -43,6 +37,3 @@ export default class HelloWorld extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  
-});

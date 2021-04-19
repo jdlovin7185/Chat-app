@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, TextInput, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Button, TextInput, ImageBackground, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 
 const image = require('../assets/Background_Image.png');
 
@@ -21,6 +21,10 @@ export default class Screen1 extends React.Component {
         </View>
           <View style={styles.outerBox}>
               <TextInput style={styles.textBox} 
+              accessible={true}
+              accessibilityLabel="Your username"
+              accessibilityHint="Lets you type a username"
+              accessibilityRole="button"
                 onChangeText={(name) => 
                   this.setState({name})}
                   value={this.state.name}
@@ -34,24 +38,44 @@ export default class Screen1 extends React.Component {
                 </Text>
                 <View style={styles.colorChoice}>
                   <TouchableOpacity
+                  accessible={true}
+                  accessibilityLabel="Color Option"
+                  accessibilityHint="Lets you choose to set the background as black"
+                  accessibilityRole="button"
                   onPress = {() => this.setState({color: '#090C08'})}
                   style={styles.palletteOne}
                   ></TouchableOpacity>
                   <TouchableOpacity
+                  accessible={true}
+                  accessibilityLabel="Color Option"
+                  accessibilityHint="Lets you choose to set the background as purple"
+                  accessibilityRole="button"
                   onPress = {() => this.setState({color: '#474056'})}
                   style={styles.palletteTwo}
                   ></TouchableOpacity>
                   <TouchableOpacity
+                  accessible={true}
+                  accessibilityLabel="Color Option"
+                  accessibilityHint="Lets you choose to set the background as gray"
+                  accessibilityRole="button"
                   onPress = {() => this.setState({color: '#8A95A5'})}
                   style={styles.palletteThree}
                   ></TouchableOpacity>
                   <TouchableOpacity
+                  accessible={true}
+                  accessibilityLabel="Color Option"
+                  accessibilityHint="Lets you choose to set the background as tan"
+                  accessibilityRole="button"
                   onPress = {() => this.setState({color: '#B9C6AE'})}
                   style={styles.palletteFour}
                   ></TouchableOpacity>
                 </View>
               </View>
               <Button style={styles.chatButton}
+              accessible={true}
+              accessibilityLabel="Start Chat"
+              accessibilityHint="Lets you start chatting with friends"
+              accessibilityRole="button"
                 title = "Start Chatting"
                 onPress = {() => this.props.navigation.navigate('Chat', 
                 { 
