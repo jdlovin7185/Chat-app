@@ -14,7 +14,7 @@ export default class Screen2 extends React.Component {
       user: '',
       uid: ''
     };
-
+// to get entry into the data base
     const firebaseConfig = {
       apiKey: "AIzaSyAhsnNVYW1Q7SLxej_YotqhWZw1jwtCuSY",
       authDomain: "meet-app-da2c9.firebaseapp.com",
@@ -59,7 +59,7 @@ export default class Screen2 extends React.Component {
     firebase.firestore().collection('messages').where("uid", "==", this.state.uid);
   }
 
-  
+  // collects data in database in real-time
   onCollectionUpdate = (querySnapshot) => {
     const messages = [];
     // go through each document
@@ -78,6 +78,7 @@ export default class Screen2 extends React.Component {
     });
   };
   
+  // Adds messages to database
   addMessages() {
     const messages = this.state.messages[0];
     this.referenceChatMessages.add({
@@ -112,7 +113,7 @@ export default class Screen2 extends React.Component {
       />
       )
   }
-
+// where user can chat
   render() {
     return (
       <View style={{ flex: 1 }}>

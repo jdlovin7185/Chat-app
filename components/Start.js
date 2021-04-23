@@ -14,11 +14,13 @@ export default class Screen1 extends React.Component {
 
   render() {
     return (
+      // Displays background
     <ImageBackground source={image} style={styles.backGround}>
       <View style={styles.container}>
         <View style={styles.topScreen}> 
           <Text style={styles.appTitle}>Chatty</Text>
         </View>
+        {/* contents of inner display box */}
           <View style={styles.outerBox}>
               <TextInput style={styles.textBox} 
               accessible={true}
@@ -36,6 +38,7 @@ export default class Screen1 extends React.Component {
                 <Text style={styles.colorPallette}>
                   Choose Background Color:
                 </Text>
+                {/* Displays color options for background */}
                 <View style={styles.colorChoice}>
                   <TouchableOpacity
                   accessible={true}
@@ -71,6 +74,7 @@ export default class Screen1 extends React.Component {
                   ></TouchableOpacity>
                 </View>
               </View>
+              {/* Allows user to enter the chat room */}
               <Button style={styles.chatButton}
               accessible={true}
               accessibilityLabel="Start Chat"
