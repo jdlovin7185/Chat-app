@@ -4,30 +4,34 @@ import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 
 const firebase = require('firebase');
 require('firebase/firestore');
+require('firebase/auth');
 
 export default class Screen2 extends React.Component {
   constructor() {
     super();
     this.state = {
-      messages: []
+      messages: [],
+      user: '',
+      uid: ''
     };
-    if (!firebase.apps.length){
-      firebase.initializeApp({
-        apiKey: "AIzaSyAhsnNVYW1Q7SLxej_YotqhWZw1jwtCuSY",
-        authDomain: "meet-app-da2c9.firebaseapp.com",
-        projectId: "meet-app-da2c9",
-        storageBucket: "meet-app-da2c9.appspot.com",
-        messagingSenderId: "316391670730",
-        appId: "1:316391670730:web:f1a0c326742b3a421bc533",
-        measurementId: "G-RTQF5PMVMG"
-      });
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAhsnNVYW1Q7SLxej_YotqhWZw1jwtCuSY",
+      authDomain: "meet-app-da2c9.firebaseapp.com",
+      projectId: "meet-app-da2c9",
+      storageBucket: "meet-app-da2c9.appspot.com",
+      messagingSenderId: "316391670730",
+      appId: "1:316391670730:web:f1a0c326742b3a421bc533",
+      measurementId: "G-RTQF5PMVMG"
     }
-    this.referenceChatMessages = firebase.firestore().collection("messages");
+    if (!firebase.apps.length){
+      firebase.initializeApp(firebaseConfig);
+    }
+    this.referenceChatMessages = firebase.firestore().collection('messages');
   };
   
   componentDidMount() {
     this.referenceChatMessages = firebase.firestore().collection('messages');
-    
     this.authUnsubscribe = firebase.auth().onAuthStateChanged(async(user) => {
       if (!user) {
         await firebase.auth().signInAnonymously();
@@ -47,6 +51,7 @@ export default class Screen2 extends React.Component {
   
   componentWillUnmount() {
     this.unsubscribe();
+    this.authUnsubscribe();
   }
   // create a reference to the active user's documents ()
   onAuthStateChanged() {
@@ -74,11 +79,12 @@ export default class Screen2 extends React.Component {
   };
   
   addMessages() {
+    const messages = this.state.messages[0];
     this.referenceChatMessages.add({
       _id: messages._id,
       text: messages.text,
       createdAt: messages.createdAt,
-      user: message.user
+      user: messages.user
     });
   }
   
@@ -86,7 +92,10 @@ export default class Screen2 extends React.Component {
   onSend(messages = []) {
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages),
-    }))
+    }),
+    () => {
+      this.addMessages();
+    });
   }
   
 
