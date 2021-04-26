@@ -65,7 +65,7 @@ export default class Screen2 extends React.Component {
     });
     
   }
-
+// syncs messages with database
   async getMessages() {
     let messages = '';
     try {
@@ -121,7 +121,7 @@ export default class Screen2 extends React.Component {
       location: messages.location || null
     });
   }
-
+// saves messages to the state
   async saveMessages() {
     try {
       await AsyncStorage.setItem('messages', JSON.stringify(this.state.messages));
@@ -129,7 +129,7 @@ export default class Screen2 extends React.Component {
       console.log(error.message);
     }
   }
-
+// deletes messages
   async deleteMessages() {
     try {
       await AsyncStorage.removeItem('messages');
@@ -167,7 +167,7 @@ export default class Screen2 extends React.Component {
       />
       )
   }
-
+// hides text box if there is no internet connection
   renderInputToolbar(props) {
     if (this.state.isConnected == false) {
     } else {
@@ -178,11 +178,11 @@ export default class Screen2 extends React.Component {
       );
     }
   }
-
+// allows user to chose the "photo and location option"
   renderCustomActions = (props) => {
     return <CustomActions {...props} />;
   };
-
+// displays the map of where a user is
   renderCustomView (props) {
     const { currentMessage} = props;
     if (currentMessage.location) {

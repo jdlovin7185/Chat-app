@@ -10,7 +10,7 @@ import firebase from 'firebase';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default class CustomActions extends React.Component {
-
+// allows user to pic a photo from their library
   pickImage = async () => {
     const {status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
     if(status === 'granted') {
@@ -24,7 +24,7 @@ export default class CustomActions extends React.Component {
       }
     }
   }
-
+// allows user to take photo and use that photo
   takePhoto = async () => {
     const {status} = await Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.CAMERA);
     if(status ==='granted') {
@@ -38,7 +38,7 @@ export default class CustomActions extends React.Component {
       }
     }
   }
-
+// allows a user to send their location
   getLocation = async () => {
     const { status } = await Permissions.askAsync(Permissions.LOCATION);
     if(status === 'granted') {
@@ -55,7 +55,7 @@ export default class CustomActions extends React.Component {
       }
     }
   }
-
+// allows a user to chose what they want to send 
   onActionPress = () => {
     const options = ['Choose From Library', 'Take Picture', 'Send Location', 'Cancel'];
     const cancelButtonIndex = options.length - 1;
@@ -79,7 +79,7 @@ export default class CustomActions extends React.Component {
       },
     );
   };
-
+// sends media to db
   uploadImageFetch = async (uri) => {
     const blob = await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
