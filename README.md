@@ -1,9 +1,8 @@
-# Chat-app
-This app was created using React Native
+Technologies used - React Native, Google Firebase, expo, babel
 
-In order to use this app, all you have to do is download Expo into the CLI
-Download Expo onto your mobile device if you would like but is not necessary
+The purpose of this app was to build a mobile application that can be downloaded. This allows users to create a username and start a conversation as if they were in a chat room. If the app goes offline, the app will still keep the latest messages there. It allows a user to share photos and their location of where they are.
 
-The purpose of this project was to create a chat application that anyone could use
+To run this app -
+'expo run'
 
-It uses Google to store messages into the database and allows a user to still enter the chat while offline
+You can simulate the app if you have Xcode on your laptop or desktop. This app does not work Android as it won't render correctly.
